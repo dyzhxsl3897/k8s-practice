@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-service2-deployment
+  labels:
+    app: backend-service2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend-service2
+  template:
+    metadata:
+      labels:
+        app: backend-service2
+    spec:
+      containers:
+        - name: backend-service2
+          image: denglufei/k8s-service2:v1
+          ports:
+            - containerPort: 8080
